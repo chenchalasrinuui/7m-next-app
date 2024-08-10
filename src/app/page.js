@@ -1,16 +1,3 @@
-"use client"
-import Image from "next/image";
-import styles from "./page.module.css";
-import { useState } from "react";
+import { Home } from "@/Home/Home";
 
-
-export default function Home() {
-  const [cnt, setCnt] = useState(0)
-  const handleClick = () => {
-    setCnt(cnt + 1)
-  }
-  return <div>
-    <h1>{cnt}</h1>
-    <button onClick={handleClick} >click</button>
-  </div>
-}
+export default Home;
