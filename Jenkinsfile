@@ -18,11 +18,6 @@ pipeline {
         }
       }
     }
-    stage('Export') {
-            steps {
-                bat 'npm run export'  // Export static files (creates the out/ folder)
-            }
-        }
     stage('deploy') {
             steps {
               // bat "aws configure set region $AWS_DEFAULT_REGION" 
