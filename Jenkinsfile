@@ -18,14 +18,18 @@ pipeline {
         }
       }
     }
-
+    stage('Export') {
+            steps {
+                bat 'npm run export'  // Export static files (creates the out/ folder)
+            }
+        }
     stage('deploy') {
             steps {
               // bat "aws configure set region $AWS_DEFAULT_REGION" 
               bat "aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID"  
               bat "aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY"
               // bat "aws s3 cp ivica/index.html s3://ivica"
-              bat 'aws s3 sync build/ s3://react-app-deployment'
+              bat 'aws s3 sync out/ s3://react-app-deployment'
             }
         }
   }
